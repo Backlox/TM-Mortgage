@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@300;400;500;600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: montserrat;
+    font-weight: bold;
+}
+nav{
+    background: #111111;
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    color: white;
+    font-size: 25px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: medium;
+    font-family: montserrat;
+}
+nav ul{
+    float: right;
+    margin-right: 20px;
+}
+nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 20px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 3px 5px;
+    border-radius: 3px;
+}
+a.active,a:hover{
+    background: #555555;
+    transition: .5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+#check{
+    display: none;
+}
+
+@media (max-width: 952px){
+    label.logo{
+        font-size: 30px;
+        padding-left: 50px;
+    }
+    nav ul li a{
+        font-size: 16px;
+    }
+}
+@media (max-width: 852px){
+    .checkbtn{
+        display: block;
+    }
+    ul{
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #111111;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: calc(100vh - 80px);
+        z-index: 10;
+    }
+    nav ul li{
+        display: block;
+        margin: 20px 0;
+        line-height: 30px;
+    }
+    nav ul li a{
+        font-size: 20px;
+    }
+    a:hover,a.active{
+        background: none;
+        color: #555555;
+    }
+    #check:checked ~ ul{
+        left: 0;
+    }
+    #check:checked ~ body {
+        overflow: hidden;
+    }
+    section{
+        position: relative;
+        z-index: 1;
+    }
+}
+.background{
+    background: url(images/polygon.png) no-repeat center center fixed;
+    background-size: cover; 
+    min-height: calc(100vh - 80px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 20px;
+    overflow: hidden;
+}
+.welcome-banner {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    padding: 15px;
+    border-radius: 8px;
+    margin: 5px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: FlyInOnScreen 1s ease-out forwards; /* Fade in effect */
+    opacity: 0;
+}
+
+.welcome-banner h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.welcome-banner p {
+    font-size: 18px;
+    color: #555;
+}
+
+@keyframes FlyInOnScreen {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    padding: 20px; 
+    position: relative; 
+    z-index: 1;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #000000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+    justify-content: space-between;
+    flex-direction: column;
+    display: flex;
+    height: 400px;
+    opacity: 0;
+    animation: FlyInOnScreen 1s ease-out forwards;
+}
+.card:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.card:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.card:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-content h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #888787;
+    margin-bottom: 15px;
+}
+
+.card-btn {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #111111;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.card-btn:hover {
+    background-color: #cbcbcb;
+    color: black;
+}

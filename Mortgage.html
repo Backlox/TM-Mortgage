@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link rel="stylesheet" href="styleMortgage.css">
+    <script src="https://kit.fontawesome.com/80e565652d.js" crossorigin="anonymous"></script>
+    <script src="Mortgage.js"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">TM-Mortgages</label>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Mortgage.html">Mortgage Calculator</a></li>
+            <li><a href="About-Us.html">About Us</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <section class="background">
+        <section class="container">
+            <header>Mortgage Calculator</header>
+            <form id="mortgage-form" class="form">
+                <div class="input-box">
+                    <label for="loan-amount">Loan Amount (£)</label>
+                    <input id="loan-amount" type="number" placeholder="Enter Loan Amount" required>
+                </div>
+                <div class="input-box">
+                    <label for="loan-length">Loan Length (In years)</label>
+                    <input id="loan-length" type="number" placeholder="Enter Loan Length" required>
+                </div>
+                <div class="input-box">
+                    <label for="monthly-income">Monthly Income (£)</label>
+                    <input id="monthly-income" type="number" placeholder="Enter Monthly Income" required>
+                </div>
+                <button type="button" id="calculate-btn">Submit</button>
+            </form>
+            <div id="results" style="margin-top: 20px; color: white; display: none;">
+                <h3>Results</h3>
+                <p id="monthly-payment"></p>
+                <p id="total-payment"></p>
+                <p id="total-interest"></p>
+                <p id="affordability-message"></p>
+            </div>
+        </section>
+    </section>
+<script>
+document.getElementById('calculate-btn').addEventListener('click', function () {
+    const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+    const loanLength = parseFloat(document.getElementById('loan-length').value);
+    const monthlyIncome = parseFloat(document.getElementById('monthly-income').value);
+
+    if (isNaN(loanAmount) || isNaN(loanLength) || isNaN(monthlyIncome) || loanAmount <= 0 || loanLength <= 0 || monthlyIncome <= 0) {
+        alert("Please enter valid positive numbers for all fields.");
+        return;
+    }
+
+    const annualInterestRate = 4.5 / 100;
+    const monthlyInterestRate = annualInterestRate / 12; 
+    const totalPayments = loanLength * 12; 
+
+
+    const numerator = loanAmount * monthlyInterestRate * Math.pow(1 + monthlyInterestRate, totalPayments);
+    const denominator = Math.pow(1 + monthlyInterestRate, totalPayments) - 1;
+    const monthlyPayment = numerator / denominator;
+
+
+    const totalPayment = monthlyPayment * totalPayments;
+    const totalInterest = totalPayment - loanAmount;
+
+
+    const maxAffordablePayment = monthlyIncome * 0.3;
+
+
+    const resultsDiv = document.getElementById('results');
+    resultsDiv.style.display = 'block';
+    document.getElementById('monthly-payment').textContent = `Monthly Payment: £${monthlyPayment.toFixed(2)}`;
+    document.getElementById('total-payment').textContent = `Total Payment: £${totalPayment.toFixed(2)}`;
+    document.getElementById('total-interest').textContent = `Total Interest: £${totalInterest.toFixed(2)}`;
+
+    const affordabilityMessage = document.getElementById('affordability-message');
+    if (monthlyPayment > maxAffordablePayment) {
+        affordabilityMessage.textContent = "Loan Denied: Monthly payment exceeds 30% of your income.";
+        affordabilityMessage.style.color = "red";
+    } else {
+        const remainingIncome = monthlyIncome - monthlyPayment;
+        affordabilityMessage.textContent = `Loan Approved! Remaining Income After Payment: £${remainingIncome.toFixed(2)}`;
+        affordabilityMessage.style.color = "green";
+    }
+});
+
+
+const checkbox = document.getElementById('check');
+checkbox.addEventListener('change', function () {
+    if (checkbox.checked) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>
+</body>
+</html>

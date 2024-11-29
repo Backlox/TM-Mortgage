@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styleContact.css">
+    <script src="https://kit.fontawesome.com/80e565652d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">TM-Mortgages</label>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Mortgage.html">Mortgage Calculator</a></li>
+            <li><a href="About-Us.html">About Us</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="contact-box">
+                <div class="left"></div>
+                <div class="right">
+                    <h2>Contact Us</h2>
+                    <form id="contactForm">
+                    <input type="text" class="field" id="name" placeholder="Full Name">
+                    <input type="text" class="field" id="email" placeholder="Your Email">
+                    <input type="text" class="field" id="subject" placeholder="Subject">
+                    <textarea placeholder="Message" id="message" class="field area"></textarea>
+                    <button type="submit" class="btn">Send</button>
+                    </form>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+<script>
+    const checkbox = document.getElementById('check');
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+});
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        let isValid = true;
+        let errorMessage = '';
+
+        if (!name) {
+            isValid = false;
+            errorMessage += 'Name is required.\n';
+        }
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            isValid = false;
+            errorMessage += 'Valid email is required.\n';
+        }
+        if (!subject){
+            isValid = false;
+            errorMessage += 'Subject is required.\n';
+        }
+        if (!message) {
+            isValid = false;
+            errorMessage += 'Message is required.\n';
+        }
+
+        if (!isValid) {
+            alert(errorMessage)
+        } else {
+            alert('Form submitted successfully!');
+            form.reset();
+        }
+});
+
+</script>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services</title>
+    <link rel="stylesheet" href="styleServices.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/80e565652d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">TM-Mortgages</label>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Mortgage.html">Mortgage Calculator</a></li>
+            <li><a href="About-Us.html">About Us</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <section class="wrapper">
+        <h1>Our Services</h1>
+        <p class="undertitle">Thank you for deciding to use our Services, Find out more below</p>
+
+        <div class="content-box">
+            <div class="card">
+                <i class='bx bxs-chat' ></i>
+                <h2>Mortgage Consultation</h2>
+                <p>Needs Assessment: Understanding the client's financial situation, goals, and preferences
+                    Affordability Analysis
+                    Mortgage Options Overview
+                </p>
+            </div>
+
+            <div class="card">
+                <i class='bx bx-clipboard' ></i>
+                <h2>Mortgage Application Assistance</h2>
+                <p>Document Collection
+                    Application Submission
+                    Explaining Terms and Conditions
+                    Follow-up with Lender and Solicitor
+                </p>
+            </div>
+
+            <div class="card">
+                <i class='bx bxl-product-hunt'></i>
+                <h2>Mortgage Product Recommendations</h2>
+                <p>Loan Comparison: Offering tailored advice on which mortgage product suits the client's needs
+                    Government Programs: Explaining eligibility and benefits of programs.
+                </p>
+            </div>
+
+            <div class="card">
+                <i class='bx bxs-wallet' ></i>
+                <h2>Debt Management Advice</h2>
+                <p>Offering strategies for consolidating debts or improving credit scores to qualify for better mortgage rates.</p>
+            </div>
+
+            <div class="card">
+                <i class='bx bx-line-chart' ></i>
+                <h2>Post-Purchase Support</h2>
+                <p>Payment Planning: Helping clients set up a manageable repayment plan and budget.
+                    Equity Monitoring: Advising on opportunities to leverage home equity for future needs.</p>
+            </div>
+
+            <div class="card">
+                <i class='bx bx-support' ></i>
+                <h2>Online Live Customer Support</h2>
+                <p>Real-Time Assistance: Providing instant guidance via live chat or video calls for quick issue resolution.
+                    Document Help
+                    24/7 Availability
+                    Personalized Service
+                </p>
+            </div>
+        </div>
+    </section>
+</body>
+
+
+<script>
+    const checkbox = document.getElementById('check');
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>
+</html>

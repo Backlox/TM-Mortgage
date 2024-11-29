@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="styleFAQ.css">
+    <script src="https://kit.fontawesome.com/80e565652d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">TM-Mortgages</label>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Mortgage.html">Mortgage Calculator</a></li>
+            <li><a href="About-Us.html">About Us</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <section class="background">
+    <section class="faq-section">
+        <h1 class="Title">Frequently Asked Questions</h1>
+        
+        <ul class="faq">
+            <li>
+                <div class="q">
+                    <span class="arrow"></span>
+                    <span>What types of mortgages do you offer?</span>
+                </div>
+                <div class="a">
+                    <p>
+                        We offer a range of mortgage options to suit different needs, including:
+
+                        Fixed-Rate Mortgages: Your interest rate remains the same for the life of the loan.
+                        Adjustable-Rate Mortgages (ARMs): These start with a lower fixed interest rate for an initial period, then adjust periodically based on market conditions.
+                        Interest-Only Mortgages: For a set period, you pay only the interest, which can make monthly payments more affordable initially.
+                        Government-Backed Loans: Options include FHA loans (ideal for first-time buyers), VA loans (for veterans and military personnel), and USDA loans (for rural properties).
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="q">
+                    <span class="arrow"></span>
+                    <span>What are the current interest rates, and how do they vary between loan types?</span>
+                </div>
+                <div class="a">
+                    <p>
+                        Interest rates fluctuate based on market conditions, loan types, and individual factors like credit scores
+                        Although we only provide a fixed rate of 4.5%
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="q">
+                    <span class="arrow"></span>
+                    <span>Can you explain the difference between fixed-rate and variable-rate mortgages? Which is better for me?</span>
+                </div>
+                <div class="a">
+                    <p>
+                        Fixed-Rate Mortgages: The interest rate stays the same throughout the term, offering consistent monthly payments. Ideal for long-term stability and if rates are expected to rise.
+                        Variable-Rate (Adjustable-Rate) Mortgages: The rate starts lower than fixed rates but can adjust up or down after an initial period. Suitable if you plan to sell or refinance before the adjustment period or expect rates to decrease.
+                        Which is better? This depends on your financial situation, how long you plan to stay in the home, and your comfort level with potential rate changes. We'd be happy to review your goals to help you decide.
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="q">
+                    <span class="arrow"></span>
+                    <span>What are the eligibility requirements for getting a mortgage?</span>
+                </div>
+                <div class="a">
+                    <p>
+                        Eligibility typically depends on:
+
+                        Credit Score: A strong score improves your chances.
+                        Debt-to-Income (DTI) Ratio: Generally, your monthly debt should not exceed 43% of your income.
+                        Down Payment: A larger down payment often results in better loan terms.
+                        Income and Employment: Stable, verifiable income is crucial.
+                        Property Type: The property must meet certain criteria depending on the loan type.
+
+                        Although we only account for your income,cost of mortgage and the lenght of it to determine your eligibility
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="q">
+                    <span class="arrow"></span>
+                    <span>What's the minimum credit score required for approval?</span>
+                </div>
+                <div class="a">
+                    <p>
+                        The minimum score varies by loan type:
+
+                        Conventional Loans: Typically require a score of 620 or higher.
+                        FHA Loans: May approve scores as low as 580 with a 3.5% down payment, or 500 with a larger down payment.
+                        VA and USDA Loans: Generally prefer scores above 600, but flexibility exists.
+
+                        But we give everyone a chance
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="q">
+                    <span class="arrow"></span>
+                    <span>Do you charge for your advisory services, and if so, what are the fees?</span>
+                </div>
+                <div class="a">
+                    <p>
+                        Our initial mortgage consultations are complimentary. If you decide to proceed, certain fees might apply during the loan process, such as:
+
+                        Origination Fees: For processing the loan.
+                        Application Fees: Covering credit checks and administrative costs.
+                        We'Sll provide a transparent breakdown of any applicable costs before you commit.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </section>
+</section>
+</body>
+
+<script>
+    const checkbox = document.getElementById('check');
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+});
+
+const background = document.querySelector('.background');
+const q = document.querySelectorAll('.q');
+const a = document.querySelectorAll('.a');
+const arrow = document.querySelectorAll('.arrow');
+
+function updateBackgroundHeight() {
+    const faqSection = document.querySelector('.faq-section');
+    const faqHeight = faqSection.offsetHeight;
+    const totalHeight = faqSection.scrollHeight;
+    background.style.minHeight = `${faqHeight + 100}px`;
+}
+
+for(let i = 0; i < q.length; i++) {
+    q[i].addEventListener('click', () => {
+        a[i].classList.toggle('a-opened');
+        arrow[i].classList.toggle('arrow-rotated');
+        updateBackgroundHeight();
+
+        q[i].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+}
+
+
+window.addEventListener('load', updateBackgroundHeight);
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+    <title>Home</title>
+    <link rel="stylesheet" href="styleHome.css">
+    <script src="https://kit.fontawesome.com/80e565652d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas fa-bars"></i>
+        </label>
+        <label class="logo">TM-Mortgages</label>
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Mortgage.html">Mortgage Calculator</a></li>
+            <li><a href="About-Us.html">About Us</a></li>
+            <li><a href="Contact.html">Contact Us</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="FAQ.html">FAQ</a></li>
+        </ul>
+    </nav>
+    <section class="background">
+        <div class="welcome-banner">
+            <h1>Welcome to TM-Mortgages</h1>
+            <p>Your trusted partner in mortgage solutions</p>
+        </div>
+        <section class="card-container">
+            <div class="card">
+            <img src="images/Services.jpg" alt="Services-cover">
+            <div class="card-content">
+                <h1>Services</h1>
+                <p>Services include Mortgage Advising,Mortgage Calculator,Expense breakdowns and other Tools</p>
+                <a href="Services.html" class="card-btn">Read More</a>
+            </div>
+            </div>
+            <div class="card">
+                <img src="images/mortgage.png" alt="Mortgage-cover">
+                <div class="card-content">
+                    <h1>Mortgage Calculator</h1>
+                    <p>Make use of our amazing and Enchanced Mortgage Calculator</p>
+                    <a href="Mortgage.html" class="card-btn">Read More</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/Aboutus.jpg" alt="Aboutus-cover">
+                <div class="card-content">
+                    <h1>About Us</h1>
+                    <p>Who are we and why you can rely on us</p>
+                    <a href="About-Us.html" class="card-btn">Read More</a>
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+
+<script>
+    const checkbox = document.getElementById('check');
+checkbox.addEventListener('change', () => {
+    if (checkbox.checked) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'auto';
+    }
+});
+</script>
+</html>
+
